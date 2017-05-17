@@ -1,0 +1,4 @@
+LOAD DATA LOCAL INFILE '~/Documents/db_project/kursy_data.txt'
+INTO TABLE Kursy FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
