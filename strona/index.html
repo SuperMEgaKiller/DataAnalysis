@@ -1,12 +1,28 @@
 <html>
 <body>
 
+<div align="center">
+<form action = "dodaj_obecnosc.php" method="post">
+<br>
+<b>Dodaj obecnoœæ studenta<br></b>
+nr indeksu: <input type="text" name="student_id"><br>
+kod kursu: <input type="text" name="course_id"><br>
+data (YYYY-MM-DD): <input type="date" name="data"><br>
+<input type = "submit">
+</form>
+<br>
+<form action = "dodaj_ocene.php" method="post">
+<b>Dodaj ocenê za kurs<br></b>
+nr indeksu: <input type="text" name="student_id"><br>
+kod kursu: <input type="text" name="course_id"><br>
+ocena: <input type="number" name="ocena"><br>
+<input type = "submit">
+</form>
+<br>
 <form action = "find.php" method="post">
 nr indeksu: <input type="text" name="student_id">
 <input type = "submit">
 </form>
-<br>
-<a href="chart.php"> asdf</a>
-
+</div>
 </body>
 </html>

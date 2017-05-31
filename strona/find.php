@@ -16,40 +16,42 @@ if($connection->connect_error){
 $sql = "SELECT * FROM Obecnosci WHERE student_id = $nr_ind";
 $result = $connection->query($sql);
 
-if($result->num_rows > 0){
-    while($row = $result->fetch_assoc()){
-        echo "indeks: ".$row["student_id"]." - kurs: ".$row["course_id"]." - data: ".$row["data"]. "<br>";
-    }
-}
-else{
-    echo "0 results";
-}
-echo $result->num_rows;
 
 $connection->close();
 ?>
 
 <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">
-window.onload = function () {
-var num = "<?php echo $result->num_rows ?>";
-var chart = new CanvasJS.Chart("chartContainer", {
-title:{
-text: "My First Chart in CanvasJS"              
-},
-data: [              
-{
-type: "column", dataPoints: [
-{ label: "apple",  y: num },
-{ label: "orange", y: 15  },
-{ label: "banana", y: 25  },
-{ label: "mango",  y: 30  },
-{ label: "grape",  y: 28  }
-]
+
+num = +"<?php echo $result->num_rows ?>";
+
+dataFromSQL = [];
+for (i=0; i < num; i++){
+    <?php $row = $result->fetch_assoc();?>
+    name = "<?php echo $row["course_id"] ?>";
+    document.write(name);
+    dataFromSQL.push({label:name, y: (i+1)*10});
 }
-]
-});
-chart.render();
+
+
+window.onload = function () 
+{
+	var chart = new CanvasJS.Chart("chartContainer", 
+	{
+		title:
+                          {
+			text: "My First Chart in CanvasJS"              
+		},
+		data:               
+		[{
+			// Change type to "doughnut", "line", "splineArea", etc.
+			type: "column",
+			dataPoints: dataFromSQL
+			
+		}
+		]
+	});
+	chart.render();
 }
 </script>
 
