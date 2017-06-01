@@ -1,0 +1,5 @@
+CREATE TABLE Analyse(
+       przedzial VARCHAR(10) NOT NULL PRIMARY KEY,
+       srednia FLOAT DEFAULT 0)
+       ENGINE=INNODB
+       DEFAULT CHARACTER SET = utf8;
