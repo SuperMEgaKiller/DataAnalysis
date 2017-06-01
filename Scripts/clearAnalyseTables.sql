@@ -1,0 +1,2 @@
+DELETE FROM NrObc;
+DELETE FROM Analyse;
